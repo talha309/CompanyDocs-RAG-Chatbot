@@ -529,6 +529,7 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "python-multipart" },
     { name = "tavily-python" },
+    { name = "twelvedata" },
 ]
 
 [package.metadata]
@@ -547,6 +548,7 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "python-multipart", specifier = ">=0.0.32" },
     { name = "tavily-python", specifier = ">=0.7.26" },
+    { name = "twelvedata", specifier = ">=1.4.0" },
 ]
 
 [[package]]
@@ -2610,6 +2612,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pytimeparse"
+version = "1.1.8"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/5d/231f5f33c81e09682708fb323f9e4041408d8223e2f0fb9742843328778f/pytimeparse-1.1.8.tar.gz", hash = "sha256:e86136477be924d7e670646a98561957e8ca7308d44841e21f5ddea757556a0a", size = 9403, upload-time = "2018-05-18T17:40:42.76Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1b/b4/afd75551a3b910abd1d922dbd45e49e5deeb4d47dc50209ce489ba9844dd/pytimeparse-1.1.8-py2.py3-none-any.whl", hash = "sha256:04b7be6cc8bd9f5647a6325444926c3ac34ee6bc7e69da4367ba282f076036bd", size = 9969, upload-time = "2018-05-18T17:40:41.28Z" },
+]
+
+[[package]]
 name = "pyyaml"
 version = "6.0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -3147,6 +3158,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/87/d7/0535a28b1f5f24f6612fb3ff1e89fb1a8d160fee0f976e0aa6803862134b/tqdm-4.68.3.tar.gz", hash = "sha256:00dfa48452b6b6cfae3dd9885636c23d3422d1ec97c66d96818cbd5e0821d482", size = 170596, upload-time = "2026-06-17T07:36:52.105Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d8/8e/bb97bb0c71802080bfc8952937d174e49cfc50de5c951dd47b2496f0dcdb/tqdm-4.68.3-py3-none-any.whl", hash = "sha256:39832cc2def2789a6f29df83f172db7416cea70052c0907a57801c5f2fdccb03", size = 78337, upload-time = "2026-06-17T07:36:50.132Z" },
+]
+
+[[package]]
+name = "twelvedata"
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytimeparse" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/80/28/445ed67ee810bb062304fb6d4a7982d4b6678bd7fec2d219180741c21f20/twelvedata-1.4.0.tar.gz", hash = "sha256:7f05f5a47171fb640d53c7f304a082c5697313f6525c0e7fcc284d49625a67f1", size = 13067576, upload-time = "2026-04-27T16:15:03.142Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f0/b5/01b6f53c448041c8fa885b10e83acbda9776185c007cde4ef7b23859151d/twelvedata-1.4.0-py3-none-any.whl", hash = "sha256:13b4c1852a478d8ada1d65dcad9c71c8f4e9e1b080de31092b44232c360cadae", size = 57500, upload-time = "2026-04-27T16:15:00.724Z" },
 ]
 
 [[package]]
