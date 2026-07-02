@@ -14,6 +14,8 @@ gemini_llm1=ChatGoogleGenerativeAI(
 # used for summarization the old messages for short term memory
 groq_llm = ChatGroq(
     model= "llama-3.3-70b-versatile",
+    api_key=os.environ.get("GROQ_API_KEY"),
+    streaming=True,
 )
 # using for with structure output for to desgin the user query 
 gemini_llm2=ChatGoogleGenerativeAI(
