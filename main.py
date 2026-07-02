@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from langchain_core.messages import HumanMessage
-from agent import graph, config
+from agent import graph
+import uuid
+
+# config = {"configurable": {"thread_id": str(uuid.uuid4())[:255]}}
 
 app = FastAPI()
 
@@ -11,8 +14,13 @@ def home():
     }
 
 @app.get("/chat")
-def chat_route(query: str):
+def chat_route(query: str, thread_id: str):
     try:
+        config = {
+            "configurable": {
+                "thread_id": thread_id
+            }
+        }
         result = graph.invoke(
         {'messages':[HumanMessage(content=query)]},
         config=config)
@@ -23,5 +31,5 @@ def chat_route(query: str):
         }
     except Exception as e:
         return {
-            "message":str(e)
+            "error":str(e)
         }

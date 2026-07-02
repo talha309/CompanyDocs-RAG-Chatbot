@@ -6,6 +6,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 from langchain_core.messages import BaseMessage
 from typing_extensions import Annotated, TypedDict
 from utils import groq_llm
+from database import checkpointer
 
 class ChatState(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
@@ -22,11 +23,9 @@ workflow.add_node("Chat",chat_node)
 workflow.add_edge(START, "Chat")
 workflow.add_edge("Chat", END)
 
-checkpoint = InMemorySaver()
 
-config = {'configurable':{'thread_id':'chat_thread_1'}}
 
-graph = workflow.compile(checkpointer=checkpoint)
+graph = workflow.compile(checkpointer=checkpointer)
 
 
 # while True:
