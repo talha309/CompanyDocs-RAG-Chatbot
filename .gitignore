@@ -181,3 +181,4 @@ cython_debug/
 .cursorindexingignore
 .env
 company_data.pdf
+image.png

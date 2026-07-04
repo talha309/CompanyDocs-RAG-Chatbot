@@ -173,7 +173,13 @@ CompanyDocs-RAG-Chatbot/
 ```
 
 ---
+ LangGraph Workflow
 
+![LangGraph Workflow](image.png)
+
+**Description**
+
+This workflow illustrates how the LangGraph agent processes a user's query, selects the appropriate tool, retrieves relevant information, manages memory, and generates the final response.
 # Technologies Used
 
 - Python
