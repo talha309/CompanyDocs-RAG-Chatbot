@@ -180,6 +180,14 @@ CompanyDocs-RAG-Chatbot/
 **Description**
 
 This workflow illustrates how the LangGraph agent processes a user's query, selects the appropriate tool, retrieves relevant information, manages memory, and generates the final response.
+## FastAPI API Documentation
+
+![FastAPI](Screenshot_21.png)
+![FastAPI](Screenshot_3.png)
+
+## LangSmith Observability & Tracing 
+
+![LangSmith](Screenshot_4.png)
 # Technologies Used
 
 - Python
