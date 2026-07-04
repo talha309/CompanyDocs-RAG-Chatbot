@@ -30,7 +30,3 @@ gemini_llm2=ChatGoogleGenerativeAI(
 )
 gemini_llm2_with_tools = gemini_llm2.bind_tools(tools)
 # using for embedding the user query and the documents to find the relevant documents
-embeddings = GoogleGenerativeAIEmbeddings(
-    model ="models/gemini-embedding-001",
-    api_key=os.environ.get("GEMINI_API_KEY")
-)

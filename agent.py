@@ -1,7 +1,7 @@
 from langgraph.graph import StateGraph, START,END
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
-from langchain_core.messages import BaseMessage, SystemMessage
+from langchain_core.messages import BaseMessage, SystemMessage,HumanMessage
 from typing_extensions import Annotated, TypedDict
 from utils import groq_llm, groq_llm_with_tools,gemini_llm1_with_tools
 from database import checkpointer
@@ -14,7 +14,7 @@ class ChatState(TypedDict):
 
 def chat_node(state: ChatState):
     messages = [SystemMessage(content=SYSTEM_PROMPT)]+state['messages']
-    response = gemini_llm1_with_tools.invoke(messages )
+    response = groq_llm_with_tools.invoke(messages )
     return {'messages':[response]}
 
 tool_node = ToolNode(tools)
@@ -31,7 +31,7 @@ workflow.add_edge("tools", "Chat" )
 
 
 graph = workflow.compile(checkpointer=checkpointer)
-
+# config = {'configurable':{'thread_id':'6'}}
 
 # while True:
 #     user_input = input("User: ")
@@ -42,3 +42,5 @@ graph = workflow.compile(checkpointer=checkpointer)
 #         config=config)
 #     ai_response = result['messages'][-1]
 #     print(f"AI: {ai_response.content}")
+
+

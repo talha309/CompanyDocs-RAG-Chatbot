@@ -1,6 +1,7 @@
 from langchain_tavily import TavilySearch
 from langchain_core.tools import tool
 from dotenv import load_dotenv
+from rag import retriever
 import math
 import requests
 import os 
@@ -45,5 +46,25 @@ def calculator(expression:str)->str:
     except Exception as e:
         return f"Calculate error:{str(e)}"
     
+@tool 
+def retreival_tool(query:str):
 
-tools = [calculator, get_stock_price, web_search]
+    """
+    Search the document knowledge base and return relevant information.
+    Use this tool when:
+    - The user asks about document content
+    - The answer may exist in the stored documents
+    - A summary, explanation, fact, or detail is needed from documents
+    Do not guess. Use retrieved results as the source of truth.
+    """
+
+    result = retriever.invoke(query)
+    context = [doc.page_content for doc in result]
+    # metadata = [doc.metadata for doc in metadata]
+    return {
+        "query": query,
+        "context": context,
+        # "metadata": metadata,
+    }
+
+tools = [calculator, get_stock_price, web_search, retreival_tool]
